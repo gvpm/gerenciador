@@ -29,6 +29,7 @@ public class CadastroManagedBean {
      */
     private UsuarioDAO usuarioDAO = UsuarioDAO.getInstance();
     private Usuario usuario = new Usuario();
+    private Usuario usuarioAtual = new Usuario();
      //Parachecar se usuario esta logado
     private String nome;
     int idUsuario;
@@ -69,8 +70,8 @@ public class CadastroManagedBean {
             idUsuario = -1;
         }
 
-        usuario = usuarioDAO.getUsuarioFromId(idUsuario);
-        if (usuario == null) {
+        usuarioAtual = usuarioDAO.getUsuarioFromId(idUsuario);
+        if (usuarioAtual == null) {
             nome = null;
             return "Você não está logado, volte ao Login";
         } else {
@@ -79,7 +80,7 @@ public class CadastroManagedBean {
 //                    null,
 //                    new FacesMessage(FacesMessage.SEVERITY_ERROR, usuario.getNome(),
 //                            usuario.getNome()));
-            nome = usuario.getNome();
+            nome = usuarioAtual.getNome();
             System.out.println("Logado" + nome);
 
             return "Bem vindo " + nome + "!";
