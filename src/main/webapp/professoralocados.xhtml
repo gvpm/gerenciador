@@ -8,10 +8,14 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title></title>
+        <p:button href="professoralocados.xhtml" outcome="professoralocados.xhtml" value="Minhas Alocações" icon="ui-icon">
+        </p:button>
+        <p:button href="professorsolicitacao.xhtml" outcome="professorsolicitacao.xhtml" value="Minhas Solicitações" icon="ui-icon">
+        </p:button>
     </h:head>
     <h:body>
             <h1><h:outputText id="bemVindo" value="Professor"/></h1>
-                        <h1><h:outputText id="bv2" value="Equipamentos"/></h1>
+        <h1><h:outputText id="bv2" value="Equipamentos"/></h1>
         <h:form>
             <p:dataTable var="item" value="#{EquipamentoMB.listReservados}">
                   <p:column headerText="Id">
@@ -30,6 +34,26 @@
    
    
        </h:form>
+                        
+        <h1><h:outputText id="bv3" value="Salas"/></h1>
+        <h:form>
+            <p:dataTable var="item" value="#{SalaMB.listReservados}">
+                  <p:column headerText="Id">
+                       <h:outputText value="#{item.idSala}" />
+                  </p:column>
+   
+                  <p:column headerText="Patrimonio">
+                       <h:outputText value="#{item.capacidade}" />
+                  </p:column>
+   
+                  <p:column headerText="Tipo">
+                       <h:outputText value="#{item.numero}" />
+                  </p:column>
+            
+            </p:dataTable>
+   
+   
+       </h:form>                 
             
            
             

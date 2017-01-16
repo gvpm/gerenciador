@@ -27,6 +27,9 @@ public class SolicitacaoSalaManagedBean {
     public List<SolicitacaoSala> getList(){
         return solicitacaoSalaDAO.todasSolicitacaoSala();
     }
+    public List<SolicitacaoSala> getListPorId(){
+        return solicitacaoSalaDAO.todasSolicitacaoSalaPorId();
+    }
     
     
 }

@@ -63,4 +63,12 @@ public class SolicitacaoSalaDAO {
         return result;
     }
 
+    public List<SolicitacaoSala> todasSolicitacaoSalaPorId() {
+        List<SolicitacaoSala> result = em.createQuery("FROM SolicitacaoSala").getResultList();
+        return result;
+    
+    }
+ 
+
+
 }

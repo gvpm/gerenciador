@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title></title>
+         <p:button href="professoralocados.xhtml" outcome="professoralocados.xhtml" value="Minhas Alocações" icon="ui-icon">
+        </p:button>
+        <p:button href="professorsolicitacao.xhtml" outcome="professorsolicitacao.xhtml" value="Minhas Solicitações" icon="ui-icon">
+        </p:button>
+    </h:head>
+    <h:body>
+            <h1><h:outputText id="bemVindo" value="Professor"/></h1>
+        <h1><h:outputText id="bv2" value="Equipamentos"/></h1>
+       <h:form>
+            <p:dataTable var="item" value="#{SolicitacaoEquipamentoMB.listPorId}">
+                <p:column headerText="Id">
+                    <h:outputText value="#{item.idSolicitacaoEquipamento}" />
+                </p:column>
+
+                <p:column headerText="Capacidade">
+                    <h:outputText value="#{item.diaSemana}" />
+                </p:column>
+
+                <p:column headerText="Numero">
+                    <h:outputText value="#{item.estado}" />
+                </p:column>
+                <p:column headerText="Id">
+                    <h:outputText value="#{item.horaFim}" />
+                </p:column>
+
+                <p:column headerText="Capacidade">
+                    <h:outputText value="#{item.horaInicio}" />
+                </p:column>
+
+                <p:column headerText="Numero">
+                    <h:outputText value="#{item.idEquipamento}" />
+                </p:column>
+                <p:column headerText="Numero">
+                    <h:outputText value="#{item.idUsuario}" />
+                </p:column>
+
+            </p:dataTable>
+
+
+        </h:form>
+                        
+        <h1><h:outputText id="bv3" value="Salas"/></h1>
+        <h:form>
+            <p:dataTable var="item" value="#{SolicitacaoSalaMB.listPorId}">
+                <p:column headerText="Id">
+                    <h:outputText value="#{item.idSolicitacaoSala}" />
+                </p:column>
+
+                <p:column headerText="Capacidade">
+                    <h:outputText value="#{item.diaSemana}" />
+                </p:column>
+
+                <p:column headerText="Numero">
+                    <h:outputText value="#{item.estado}" />
+                </p:column>
+                <p:column headerText="Id">
+                    <h:outputText value="#{item.horaFim}" />
+                </p:column>
+
+                <p:column headerText="Capacidade">
+                    <h:outputText value="#{item.horaInicio}" />
+                </p:column>
+
+                <p:column headerText="Numero">
+                    <h:outputText value="#{item.idSala}" />
+                </p:column>
+                <p:column headerText="Numero">
+                    <h:outputText value="#{item.idUsuario}" />
+                </p:column>
+
+            </p:dataTable>
+
+
+        </h:form>              
+            
+           
+            
+            
+            <a href="index.xhtml">Voltar ao Login</a>
+    </h:body>
+</html>

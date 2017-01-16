@@ -44,7 +44,7 @@ public class LoginManagedBean {
                 return "gerentecadastro.xhtml";
             }
             else if (tipo==2){
-                return "professor.xhtml";
+                return "professoralocados.xhtml";
             }else{
 
             return "index.xhtml";

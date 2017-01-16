@@ -53,7 +53,8 @@ public class SalaDAO {
     }
 
     public List<Sala> salasReservadas() {
-        return null;
+        return em.createQuery("select eq from ReservaSala as re inner join re.idSolicitacaoSala as se inner join se.idSala as eq where re.ativo =1").getResultList();
+
     }
 
     public List<Sala> todasSalas() {

@@ -68,4 +68,11 @@ public class SolicitacaoEquipamentoDAO {
         }
     }
 
+    public List<SolicitacaoEquipamento> todosSolicitacaoEquipamentoPorId() {
+        //List<SolicitacaoEquipamento> result = em.createQuery("Select re FROM SolicitacaoEquipamento as re WHERE re.estado= :estado ").setParameter("estado", "Solicitado").getResultList();
+        List<SolicitacaoEquipamento> result = em.createQuery("FROM SolicitacaoEquipamento").getResultList();
+
+        return result;    
+    }
+
 }

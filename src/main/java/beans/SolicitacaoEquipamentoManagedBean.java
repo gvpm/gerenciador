@@ -27,6 +27,9 @@ public class SolicitacaoEquipamentoManagedBean {
     public List<SolicitacaoEquipamento> getList(){
         return solicitacaoEquipamentoDAO.todosSolicitacaoEquipamento();
     }
+    public List<SolicitacaoEquipamento> getListPorId(){
+        return solicitacaoEquipamentoDAO.todosSolicitacaoEquipamentoPorId();
+    }
     
     
 }
