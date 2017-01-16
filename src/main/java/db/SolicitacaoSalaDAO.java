@@ -8,29 +8,30 @@ import javax.persistence.Persistence;
 import model.Equipamento;
 
 import model.Sala;
+import model.SolicitacaoSala;
 
-public class SalaDAO {
+public class SolicitacaoSalaDAO {
 
-    private static SalaDAO instance;
+    private static SolicitacaoSalaDAO instance;
 
     private EntityManagerFactory factory = Persistence
             .createEntityManagerFactory("usuarios");
     private EntityManager em = factory.createEntityManager();
 
-    private SalaDAO() {
+    private SolicitacaoSalaDAO() {
 
     }
 
-    public static SalaDAO getInstance() {
+    public static SolicitacaoSalaDAO getInstance() {
 
         if (instance == null) {
-            instance = new SalaDAO();
+            instance = new SolicitacaoSalaDAO();
         }
         return instance;
 
     }
 
-    public boolean inserirSala(Sala sala) {
+    public boolean inserirSolicitacaoSala(SolicitacaoSala sala) {
         try {
             em.getTransaction().begin();
             em.persist(sala);
@@ -42,7 +43,7 @@ public class SalaDAO {
         }
     }
 
-    public boolean deletarSala(Sala sala) {
+    public boolean deletarSolicitacaoSala(SolicitacaoSala sala) {
         try {
             em.remove(sala);
             return true;
@@ -56,8 +57,9 @@ public class SalaDAO {
         return null;
     }
 
-    public List<Sala> todasSalas() {
-        List<Sala> result = em.createQuery("FROM Sala").getResultList();
+    public List<SolicitacaoSala> todasSolicitacaoSala() {
+        List<SolicitacaoSala> result = em.createQuery("Select re FROM SolicitacaoSala as re WHERE re.estado= :estado ").setParameter("estado", "Solicitado").getResultList();
+
         return result;
     }
 

@@ -7,30 +7,35 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title></title>
+        <p:button href="gerentecadastro.xhtml" outcome="gerentecadastro.xhtml" value="Cadastro de Recursos" icon="ui-icon">
+        </p:button>
+        <p:button href="gerentesolicitacao.xhtml" outcome="gerentesolicitacao.xhtml" value="Atendimento de Solicitações" icon="ui-icon">
+        </p:button>
     </h:head>
     <h:body>
         <h1><h:outputText id="bemVindo" value="Gerente"/></h1>
         <p></p>
-        
+        <h2><h:outputText id="bemVindo2" value="Aqui você pode vizualizar todos os recursos e cadastrar novos"/></h2>
+        <p></p>
         <h1><h:outputText id="bv1" value="Salas"/></h1>
-         <h:form>
+        <h:form>
             <p:dataTable var="item" value="#{SalaMB.list}">
-                  <p:column headerText="Id">
-                       <h:outputText value="#{item.idSala}" />
-                  </p:column>
-   
-                  <p:column headerText="Capacidade">
-                       <h:outputText value="#{item.capacidade}" />
-                  </p:column>
-   
-                  <p:column headerText="Numero">
-                       <h:outputText value="#{item.numero}" />
-                  </p:column>
-            
+                <p:column headerText="Id">
+                    <h:outputText value="#{item.idSala}" />
+                </p:column>
+
+                <p:column headerText="Capacidade">
+                    <h:outputText value="#{item.capacidade}" />
+                </p:column>
+
+                <p:column headerText="Numero">
+                    <h:outputText value="#{item.numero}" />
+                </p:column>
+
             </p:dataTable>
-   
-   
-       </h:form>
+
+
+        </h:form>
 
         <h:form>
             <p:messages id="messages" />
@@ -42,9 +47,8 @@
                 <p:outputLabel for="numero" value="Número" />
                 <p:inputText id="numero" value="#{CadastroSalaMB.sala.numero}" />
 
-
                 <p:commandButton  value="Cadastrar Sala" icon="ui-icon-star" action="#{CadastroSalaMB.cadastra}" update="messages">
-                    
+
                 </p:commandButton>
 
             </p:panelGrid>
@@ -53,22 +57,22 @@
         <h1><h:outputText id="bv2" value="Equipamentos"/></h1>
         <h:form>
             <p:dataTable var="item" value="#{EquipamentoMB.list}">
-                  <p:column headerText="Id">
-                       <h:outputText value="#{item.idEquipamento}" />
-                  </p:column>
-   
-                  <p:column headerText="Patrimonio">
-                       <h:outputText value="#{item.patrimonio}" />
-                  </p:column>
-   
-                  <p:column headerText="Tipo">
-                       <h:outputText value="#{item.tipo}" />
-                  </p:column>
-            
+                <p:column headerText="Id">
+                    <h:outputText value="#{item.idEquipamento}" />
+                </p:column>
+
+                <p:column headerText="Patrimonio">
+                    <h:outputText value="#{item.patrimonio}" />
+                </p:column>
+
+                <p:column headerText="Tipo">
+                    <h:outputText value="#{item.tipo}" />
+                </p:column>
+
             </p:dataTable>
-   
-   
-       </h:form>
+
+
+        </h:form>
         <h:form>
             <p:messages id="messages" />
             <p:panelGrid columns="2">
@@ -85,7 +89,7 @@
 
             </p:panelGrid>
         </h:form>
-        
+
         <a href="index.xhtml">Voltar ao Login</a>
     </h:body>
 </html>

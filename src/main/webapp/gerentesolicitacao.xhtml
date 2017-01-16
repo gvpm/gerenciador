@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title></title>
+        <p:button href="gerentecadastro.xhtml" outcome="gerentecadastro.xhtml" value="Cadastro de Recursos" icon="ui-icon">
+        </p:button>
+        <p:button href="gerentesolicitacao.xhtml" outcome="gerentesolicitacao.xhtml" value="Atendimento de Solicitações" icon="ui-icon">
+        </p:button>
+    </h:head>
+    <h:body>
+        <h1><h:outputText id="bemVindo" value="Gerente"/></h1>
+        <p></p>
+        <h2><h:outputText id="bemVindo2" value="Aqui você pode gerencias as solicitações"/></h2>
+        <p></p>
+        <h1><h:outputText id="bv1" value="Salas"/></h1>
+        <h:form>
+            <p:dataTable var="item" value="#{SolicitacaoSalaMB.list}">
+                <p:column headerText="Id">
+                    <h:outputText value="#{item.idSolicitacaoSala}" />
+                </p:column>
+
+                <p:column headerText="Capacidade">
+                    <h:outputText value="#{item.diaSemana}" />
+                </p:column>
+
+                <p:column headerText="Numero">
+                    <h:outputText value="#{item.estado}" />
+                </p:column>
+                <p:column headerText="Id">
+                    <h:outputText value="#{item.horaFim}" />
+                </p:column>
+
+                <p:column headerText="Capacidade">
+                    <h:outputText value="#{item.horaInicio}" />
+                </p:column>
+
+                <p:column headerText="Numero">
+                    <h:outputText value="#{item.idSala}" />
+                </p:column>
+                <p:column headerText="Numero">
+                    <h:outputText value="#{item.idUsuario}" />
+                </p:column>
+
+            </p:dataTable>
+
+
+        </h:form>
+
+        <h:form>
+            <p:messages id="messages" />
+            <p:panelGrid columns="2">
+                <p:outputLabel for="capacidade" value="Capacidade:" />
+                <p:inputText id="capacidade" value="#{CadastroSalaMB.sala.capacidade}" />
+
+
+                <p:outputLabel for="numero" value="Número" />
+                <p:inputText id="numero" value="#{CadastroSalaMB.sala.numero}" />
+
+                <p:commandButton  value="Cadastrar Sala" icon="ui-icon-star" action="#{CadastroSalaMB.cadastra}" update="messages">
+
+                </p:commandButton>
+
+            </p:panelGrid>
+        </h:form>
+
+        <h1><h:outputText id="bv2" value="Equipamentos"/></h1>
+        <h:form>
+            <p:dataTable var="item" value="#{SolicitacaoEquipamentoMB.list}">
+                 <p:column headerText="Id">
+                    <h:outputText value="#{item.idSolicitacaoEquipamento}" />
+                </p:column>
+
+                <p:column headerText="Capacidade">
+                    <h:outputText value="#{item.diaSemana}" />
+                </p:column>
+
+                <p:column headerText="Numero">
+                    <h:outputText value="#{item.estado}" />
+                </p:column>
+                <p:column headerText="Id">
+                    <h:outputText value="#{item.horaFim}" />
+                </p:column>
+
+                <p:column headerText="Capacidade">
+                    <h:outputText value="#{item.horaInicio}" />
+                </p:column>
+
+                <p:column headerText="Numero">
+                    <h:outputText value="#{item.idEquipamento}" />
+                </p:column>
+                <p:column headerText="Numero">
+                    <h:outputText value="#{item.idUsuario}" />
+                </p:column>
+
+            </p:dataTable>
+
+
+        </h:form>
+        <h:form>
+            <p:messages id="messages" />
+            <p:panelGrid columns="2">
+                <p:outputLabel for="patrimonio" value="Patrimonio:" />
+                <p:inputText id="patrimonio" value="#{CadastroEquipamentoMB.equipamento.patrimonio}" />
+
+
+                <p:outputLabel for="tipo" value="Tipo" />
+                <p:inputText id="tipo" value="#{CadastroEquipamentoMB.equipamento.tipo}" />
+
+
+                <p:commandButton  value="Cadastrar Equipamento" icon="ui-icon-star" action="#{CadastroEquipamentoMB.cadastra}" update="messages">
+                </p:commandButton>
+
+            </p:panelGrid>
+        </h:form>
+
+        <a href="index.xhtml">Voltar ao Login</a>
+    </h:body>
+</html>
