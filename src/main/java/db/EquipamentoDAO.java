@@ -38,10 +38,9 @@ public class EquipamentoDAO {
     
     public List<Equipamento> equipamentosReservados(){
 //        select equipamento.*,solicitacao_equipamento.dia_semana,solicitacao_equipamento.hora_inicio,solicitacao_equipamento.hora_fim from reserva_equipamento
-        return em.createQuery("SELECT eq.idEquipamento,eq.patrimonio,eq.tipo,se.diaSemana,se.horaInicio,se.horaFim"
-                + "FROM Equipamento as eq, SolicitacaoEquipamento se"
-                + ", ReservaEquipamento re"
-                + "WHERE re.ativo = 1 ").getResultList();
+//        return em.createQuery("FROM  ReservaEquipamento as re, re.idSolicitacaoEquipamento as se, se.idEquipamento as eq"
+//                + " WHERE re.ativo = 1 ").getResultList();
+           return em.createQuery("select eq from ReservaEquipamento as re inner join re.idSolicitacaoEquipamento as se inner join se.idEquipamento as eq where re.ativo =1").getResultList();
     }
 
     public boolean inserirEquipamento(Equipamento equipamento) {

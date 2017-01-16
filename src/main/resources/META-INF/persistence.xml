@@ -3,6 +3,8 @@
   <persistence-unit name="usuarios">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <class>model.Usuario</class>
+    <class>model.model.ReservaEquipamento</class>
+    <class>model.Smodel.SolicitacaoEquipamento</class>
     <properties>
       <!-- dados da conexao -->
       <!-- propriedades do hibernate -->
