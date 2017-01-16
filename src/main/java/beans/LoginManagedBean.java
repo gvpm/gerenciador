@@ -34,6 +34,8 @@ public class LoginManagedBean {
             ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
             Map<String, Object> sessionMap = externalContext.getSessionMap();
             sessionMap.put("idUsuario", usuario.getIdUsuario());
+            sessionMap.put("tipoUsuario", usuario.getTipo());
+
             int tipo = usuario.getTipo();
             if (tipo==0){
                 return "cadastro.xhtml";
