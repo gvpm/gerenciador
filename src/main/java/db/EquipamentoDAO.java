@@ -5,25 +5,25 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 
-import model.Sala;
+import model.Equipamento;
 
-public class SalaDAO {
+public class EquipamentoDAO {
 
-    private static SalaDAO instance;
+    private static EquipamentoDAO instance;
 
     private EntityManagerFactory factory = Persistence
 .createEntityManagerFactory("usuarios");
     private EntityManager em = factory.createEntityManager();
     
     
-    private SalaDAO() {
+    private EquipamentoDAO() {
 
     }
 
-    public static SalaDAO getInstance() {
+    public static EquipamentoDAO getInstance() {
 
         if (instance == null) {
-            instance = new SalaDAO();
+            instance = new EquipamentoDAO();
         }
         return instance;
 
@@ -32,10 +32,10 @@ public class SalaDAO {
 
 
 
-    public boolean inserirSala(Sala sala) {
+    public boolean inserirEquipamento(Equipamento equipamento) {
         try {
             em.getTransaction().begin();
-            em.persist(sala);
+            em.persist(equipamento);
             em.getTransaction().commit();
             return true;
         } catch (Exception e) {
@@ -44,9 +44,9 @@ public class SalaDAO {
         }
     }
 
-    public boolean deletarSala(Sala sala) {
+    public boolean deletarEquipamento(Equipamento equipamento) {
         try {
-            em.remove(sala);
+            em.remove(equipamento);
             return true;
         } catch (Exception e) {
             e.printStackTrace();
