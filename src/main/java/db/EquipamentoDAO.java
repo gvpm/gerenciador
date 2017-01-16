@@ -1,5 +1,6 @@
 package db;
 
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
@@ -29,8 +30,19 @@ public class EquipamentoDAO {
 
     }
 
-
-
+    public List<Equipamento> todosEquipamentos(){
+        List<Equipamento> result = em.createQuery("FROM Equipamento").getResultList();
+        return result;
+    }
+    
+    
+    public List<Equipamento> equipamentosReservados(){
+//        select equipamento.*,solicitacao_equipamento.dia_semana,solicitacao_equipamento.hora_inicio,solicitacao_equipamento.hora_fim from reserva_equipamento
+        return em.createQuery("SELECT eq.idEquipamento,eq.patrimonio,eq.tipo,se.diaSemana,se.horaInicio,se.horaFim"
+                + "FROM Equipamento as eq, SolicitacaoEquipamento se"
+                + ", ReservaEquipamento re"
+                + "WHERE re.ativo = 1 ").getResultList();
+    }
 
     public boolean inserirEquipamento(Equipamento equipamento) {
         try {

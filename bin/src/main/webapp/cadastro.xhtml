@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title></title>
+    </h:head>
+    <h:body>
+        #{CadastroMB.loga}
+        <h:form id="formCadastro">
+            <h1><h:outputText id="bemVindo" value="Cadastro de Novos Usuários"/></h1>
+            <h:panelGrid columns="2">
+
+                <h:outputText id="nomeText" value="Nome:"/>
+                <h:inputText id="nome" label="Nome"
+                             value="#{CadastroMB.usuario.nome}" required="true"/>
+
+                <h:outputText id="loginText" value="Usuario:"/>
+                <h:inputText id="login" label="Usuario"
+                             value="#{CadastroMB.usuario.usuario}" required="true"/>
+
+                <h:outputText id="senhaText" value="Senha:"/>
+                <h:inputSecret id="senha" label="Senha"
+                               value="#{CadastroMB.usuario.senha}" required="true"/>   
+                
+                <h:outputText id="tipoText" value="Tipo:"/>
+                <h:inputText id="tipo" label="Tipo"
+                             value="#{CadastroMB.usuario.tipo}" required="true"/>
+                
+                <p>0=Admin 1=Gerente 2=Professor</p>
+
+            </h:panelGrid>
+            <h:messages id="msgErro" style="color: red"/>
+            <h:commandButton id="botao" value="Cadastrar" action="#{CadastroMB.cadastra}"/>
+        </h:form>
+        <br></br>
+
+        <a href="index.xhtml">Voltar ao Login</a>
+    </h:body>
+</html>

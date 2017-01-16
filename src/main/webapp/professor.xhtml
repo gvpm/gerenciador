@@ -2,14 +2,46 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title></title>
     </h:head>
     <h:body>
-        
             <h1><h:outputText id="bemVindo" value="Professor"/></h1>
-    
-        
+                
+            
+              <div>
+            	<h1>Seus Contatos: </h1>
+            	<div>
+            		<table style="width:100%;margin:auto;">
+            			<tr>
+            				
+            				<td>id_equipamento</td>
+                                        <td>patrimonio</td>
+            				<td>tipo</td>
+                                        <td></td>
+            			</tr>
+            			<ui:repeat var="item" value="#{EquipamentoMB.listReservados}">
+            				<tr>
+            					<td>#{item.idEquipamento}</td>
+            					<td>#{item.patrimonio}</td>
+                                                <td>#{item.tipo}</td>
+            					<td>
+<!--            					<h:form>
+                                                    <h:commandLink action="{AgendaMB.deleteContato}" target="_self" value="Excluir">
+                                                                                    <f:attribute name = "contatoId" value = "{item.id}" /> 
+                                                    </h:commandLink>
+            					</h:form>-->
+            					</td>
+            				</tr>
+            			</ui:repeat>
+            		</table>
+            	</div>
+              </div>
+            
+            
+            <a href="index.xhtml">Voltar ao Login</a>
     </h:body>
 </html>
