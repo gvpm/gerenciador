@@ -1,9 +1,11 @@
 package db;
 
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
+import model.Equipamento;
 
 import model.Sala;
 
@@ -53,5 +55,13 @@ public class SalaDAO {
             return false;
         }
     }
+
+    public List<Sala> salasReservadas() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List<Sala> todasSalas() {
+        List<Sala> result = em.createQuery("FROM Sala").getResultList();
+        return result;    }
 
 }

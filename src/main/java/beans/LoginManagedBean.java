@@ -38,7 +38,7 @@ public class LoginManagedBean {
 
             int tipo = usuario.getTipo();
             if (tipo==0){
-                return "cadastro.xhtml";
+                return "admin.xhtml";
             }
             else if (tipo==1){
                 return "gerente.xhtml";

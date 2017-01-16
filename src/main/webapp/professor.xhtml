@@ -4,13 +4,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title></title>
     </h:head>
     <h:body>
             <h1><h:outputText id="bemVindo" value="Professor"/></h1>
-                
+                        <h1><h:outputText id="bv2" value="Equipamentos"/></h1>
+        <h:form>
+            <p:dataTable var="item" value="#{EquipamentoMB.listReservados}">
+                  <p:column headerText="Id">
+                       <h:outputText value="#{item.idEquipamento}" />
+                  </p:column>
+   
+                  <p:column headerText="Patrimonio">
+                       <h:outputText value="#{item.patrimonio}" />
+                  </p:column>
+   
+                  <p:column headerText="Tipo">
+                       <h:outputText value="#{item.tipo}" />
+                  </p:column>
+            
+            </p:dataTable>
+   
+   
+       </h:form>
             
               <div>
             	<h1>Seus Contatos: </h1>
@@ -21,6 +40,9 @@
             				<td>id_equipamento</td>
                                         <td>patrimonio</td>
             				<td>tipo</td>
+                                        <td>dia</td>
+                                        <td>hora_inicio</td>
+                                        <td>hora_fim</td>
                                         <td></td>
             			</tr>
             			<ui:repeat var="item" value="#{EquipamentoMB.listReservados}">
@@ -28,6 +50,7 @@
             					<td>#{item.idEquipamento}</td>
             					<td>#{item.patrimonio}</td>
                                                 <td>#{item.tipo}</td>
+                                                
             					<td>
 <!--            					<h:form>
                                                     <h:commandLink action="{AgendaMB.deleteContato}" target="_self" value="Excluir">

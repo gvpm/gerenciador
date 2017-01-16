@@ -14,7 +14,7 @@
 
                 <h:outputText id="nomeText" value="Capacidade:"/>
                 <h:inputText id="capacidade" label="Capacidade"
-                             value="#{CadastroSalaMB.sala.capacidade}" required="true"/>
+                             value="#{CadastroEquipamentoMB.equipamento.patrimonio}" required="true"/>
 
                 <h:outputText id="loginText" value="Número:"/>
                 <h:inputText id="numero" label="numero"
@@ -24,7 +24,7 @@
 
             </h:panelGrid>
             <h:messages id="msgErro" style="color: red"/>
-            <h:commandButton id="botao" value="Cadastrar" action="#{CadastroSalaMB.cadastra}"/>
+            <h:commandButton id="botao" value="Cadastrar" action="#{CadastroEquipamentoMB.cadastra}"/>
         </h:form>
         <br></br>
 

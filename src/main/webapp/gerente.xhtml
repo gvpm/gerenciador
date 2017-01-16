@@ -2,14 +2,90 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title></title>
     </h:head>
     <h:body>
-            <h1><h:outputText id="bemVindo" value="Gerente"/></h1>
-            <a href="cadastrosala.xhtml">Cadastro de Sala</a>
-            <a href="cadastroequipamento.xhtml">Cadastro de Equipamento</a>
-            <a href="index.xhtml">Voltar ao Login</a>
+        <h1><h:outputText id="bemVindo" value="Gerente"/></h1>
+        <p></p>
+        
+        <h1><h:outputText id="bv1" value="Salas"/></h1>
+         <h:form>
+            <p:dataTable var="item" value="#{SalaMB.list}">
+                  <p:column headerText="Id">
+                       <h:outputText value="#{item.idSala}" />
+                  </p:column>
+   
+                  <p:column headerText="Capacidade">
+                       <h:outputText value="#{item.capacidade}" />
+                  </p:column>
+   
+                  <p:column headerText="Numero">
+                       <h:outputText value="#{item.numero}" />
+                  </p:column>
+            
+            </p:dataTable>
+   
+   
+       </h:form>
+
+        <h:form>
+            <p:messages id="messages" />
+            <p:panelGrid columns="2">
+                <p:outputLabel for="capacidade" value="Capacidade:" />
+                <p:inputText id="capacidade" value="#{CadastroSalaMB.sala.capacidade}" />
+
+
+                <p:outputLabel for="numero" value="Número" />
+                <p:inputText id="numero" value="#{CadastroSalaMB.sala.numero}" />
+
+
+                <p:commandButton  value="Cadastrar Sala" icon="ui-icon-star" action="#{CadastroSalaMB.cadastra}" update="messages">
+                    
+                </p:commandButton>
+
+            </p:panelGrid>
+        </h:form>
+
+        <h1><h:outputText id="bv2" value="Equipamentos"/></h1>
+        <h:form>
+            <p:dataTable var="item" value="#{EquipamentoMB.list}">
+                  <p:column headerText="Id">
+                       <h:outputText value="#{item.idEquipamento}" />
+                  </p:column>
+   
+                  <p:column headerText="Patrimonio">
+                       <h:outputText value="#{item.patrimonio}" />
+                  </p:column>
+   
+                  <p:column headerText="Tipo">
+                       <h:outputText value="#{item.tipo}" />
+                  </p:column>
+            
+            </p:dataTable>
+   
+   
+       </h:form>
+        <h:form>
+            <p:messages id="messages" />
+            <p:panelGrid columns="2">
+                <p:outputLabel for="patrimonio" value="Patrimonio:" />
+                <p:inputText id="patrimonio" value="#{CadastroEquipamentoMB.equipamento.patrimonio}" />
+
+
+                <p:outputLabel for="tipo" value="Tipo" />
+                <p:inputText id="tipo" value="#{CadastroEquipamentoMB.equipamento.tipo}" />
+
+
+                <p:commandButton  value="Cadastrar Equipamento" icon="ui-icon-star" action="#{CadastroEquipamentoMB.cadastra}" update="messages">
+                </p:commandButton>
+
+            </p:panelGrid>
+        </h:form>
+        
+        <a href="index.xhtml">Voltar ao Login</a>
     </h:body>
 </html>

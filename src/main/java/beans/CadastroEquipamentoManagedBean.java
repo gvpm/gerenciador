@@ -47,7 +47,7 @@ public class CadastroEquipamentoManagedBean {
                             "Erro no Cadastro"));
             return null;
         } else {
-            return "cadastrosala.xhtml";
+            return "gerente.xhtml";
         }
 
     }

@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+
+    </h:head>
+
+    <h:body>
+        <h:form>
+            <p:messages id="messages" />
+            <p:panelGrid columns="2">
+                <p:outputLabel for="nome" value="Nome:" />
+                <p:inputText id="nome" value="#{CadastroMB.usuario.nome}" />
+
+
+                <p:outputLabel for="usuario" value="Usuário:" />
+                <p:inputText id="usuario" value="#{CadastroMB.usuario.usuario}" />
+
+
+                <p:outputLabel for="senha" value="Senha:" />
+                <p:inputText id="senha" value="#{CadastroMB.usuario.senha}" />
+
+
+                <p:outputLabel for="tipo" value="Tipo" />
+                <p:selectOneRadio id="tipo" value="#{CadastroMB.usuario.tipo}" >
+                    <f:selectItem itemLabel="Administrador" itemValue="0" />
+                    <f:selectItem itemLabel="Gerente" itemValue="1" />
+                    <f:selectItem itemLabel="Professor" itemValue="2" />
+                </p:selectOneRadio>
+
+
+                <p:commandButton  value="Cadastrar" icon="ui-icon-star" action="#{CadastroMB.cadastra}" update="messages">
+                </p:commandButton>
+
+            </p:panelGrid>
+        </h:form>
+        <a href="index.xhtml">Voltar ao Login</a>
+    </h:body>
+</html>
